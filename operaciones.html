@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MINSEG::GESTION</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="img/escudo.png" alt="MINSEG-MZA" width="40" height="46">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <section>
+      <h1>Operaciones</h1>
+    </section>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">operaciones comerciales</li>
+      </ol>
+    </nav>
+    <section>
+      <div class="row g-3">
+
+        <div class="col-md-12">
+          <label for="tipoOperacion" class="form-label">Tipo de Operación</label>
+          <select id="tipoOperacion" class="form-select">
+            <option value="0" selected>--Elija una Opción--</option>
+            <option value="1">Compra</option>
+            <option value="2">Venta</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <label for="metal" class="form-label">Tipo de Metal</label>
+          <select id="metal" class="form-select">
+            <option value="0" selected>--Elija una Opción--</option>
+            <option value="1">Cobre</option>
+            <option value="2">Aluminio</option>
+            <option value="3">Metales no Ferrosos</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="kilos" class="form-label">Kilogramos</label>
+          <input type="text" class="form-control" id="kilos">
+        </div>
+
+        <div class="col-md-8">
+          <label for="Origen" class="form-label">Origen</label>
+          <input type="text" class="form-control" id="origen">
+        </div>
+        <div class="col-md-6">
+          <label for="detalles" class="form-label">Detalles</label>
+          <textarea type="text" class="form-control" id="detalles" row="5"></textarea>
+        </div>
+        <div class="col-md-6">
+          <label for="caracteristicas" class="form-label">Caracteristicas</label>
+          <textarea type="text" class="form-control" id="caracteristicas" row="5"></textarea>
+        </div>
+        <hr>
+        <span class="text-primary" id="datosOperacion"></span>
+        <div class="row g-3" id="datosInformativos">
+          <div class="col-md-12">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" class="form-control" id="dni">
+          </div>
+          <div class="col-md-12">
+            <label for="telefono" class="form-label">Telefono</label>
+            <input type="text" class="form-control" id="telefono">
+          </div>
+          <div class="col-md-12">
+            <label for="mail" class="form-label">Mail</label>
+            <input type="mail" class="form-control" id="mail">
+          </div>
+
+        </div>
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" id="registrar"></button>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="node_modules/inputmask/dist/inputmask.js"></script>
+  <script>
+
+    let telefono = document.getElementById("telefono");
+    let mskTel = new Inputmask("(999[9])-999999[9]");
+    mskTel.mask(telefono);
+
+    let kilos = document.getElementById("kilos");
+    let mskKil = new Inputmask("99[99],99[99]");
+    mskKil.mask(kilos);
+
+    const tipoOperacion = document.querySelector('#tipoOperacion');
+    const datosOperacion = document.querySelector('#datosOperacion');
+    const registrar = document.querySelector('#registrar');
+    const datosInformativos = document.querySelector('#datosInformativos');
+    registrar.style.display = "none"
+    block();
+
+    function block() {
+      datosInformativos.style.display = "none"
+    }
+
+    function unblock() {
+      datosInformativos.style.display = "inline-block"
+    }
+
+    tipoOperacion.addEventListener("change", (e) => {
+      console.log(typeof e.target.value);
+      switch (parseInt(e.target.value)) {
+        case 1:
+          datosOperacion.innerHTML = '';
+          datosOperacion.innerHTML = "<h3>A quien le compro?</h3>";
+          registrar.textContent = ''
+          registrar.textContent = 'Registrar Compra';
+          registrar.style.display = "inline-block";
+          unblock();
+          break;
+        case 2:
+          datosOperacion.innerHTML = '';
+          datosOperacion.innerHTML = "<h3>A quien le vendo?</h3>";
+          registrar.textContent = ''
+          registrar.textContent = 'Registrar Venta';
+          registrar.style.display = "inline-block";
+          unblock();
+          break;
+        default:
+          registrar.style.display = "none"
+          datosOperacion.innerHTML = '';
+          block();
+          break;
+      }
+    });
+  </script>
+</body>
+
+</html>
