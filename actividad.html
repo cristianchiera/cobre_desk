@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MINSEG::GESTION</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="img/escudo.png" alt="MINSEG-MZA" width="40" height="46">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <section>
+      <h1>Registro de Sujetos</h1>
+    </section>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="sujetos.html">Registro</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Actividad</li>
+      </ol>
+    </nav>
+    <section>
+      <form class="row g-3">
+        <div class="col-md-4">
+          <label for="tipoActividades" class="form-label">Tipo de Actividades</label>
+          <select id="tipoActividades" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Venta</option>
+            <option value="2">Reducción</option>
+            <option value="3">Fundición</option>
+            <option value="4">Fabricación</option>
+            <option value="5">Deposito</option>
+            <option value="6">Chatarreria</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="principal" class="form-label">Es la Actividad Principal?</label>
+          <select id="principal" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Si</option>
+            <option value="2">No</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="permanente" class="form-label">Es un Actividad Permanente?</label>
+          <select id="permanente" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Si</option>
+            <option value="2">No</option>
+          </select>
+        </div>
+
+
+
+
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" id="registrar">Registrar</button>
+        </div>
+      </form>
+    </section>
+
+
+  </div>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="node_modules/inputmask/dist/inputmask.js"></script>
+  <script>
+    let cuil = document.getElementById("cuil");
+    let im = new Inputmask("99-99999999-9");
+    im.mask(cuil);
+  </script>
+</body>
+
+</html>
