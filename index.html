@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
-    <title> Registro de Actividades Vinculadas a la Comercialización de Metales No Ferrosos y Otros</title>
-    <link rel="stylesheet" href="/css/master.css">
-  </head>
-  <body>
 
-    <div class="login-box">
-      <img src="img/logo.png" class="avatar" alt="Avatar Image">
-      <h1>Registrarse</h1>
-      <form>
-        <!-- USERNAME INPUT -->
-        <label for="username">Nombre de Usuario</label>
-        <input type="text" placeholder="Enter Username">
-        <!-- PASSWORD INPUT -->
-        <label for="password">Contraseña</label>
-        <input type="password" placeholder="Enter Password">
-        <input type="submit" value="Log In">
-        <a href="#">Perdiste tu contraseña?</a><br>
-        <a href="#">No tienes una cuenta?</a>
-      </form>
-    </div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+  <title> Registro de Actividades Vinculadas a la Comercialización de Metales No Ferrosos y Otros</title>
+  <link rel="stylesheet" href="/css/master.css">
+</head>
+
+<body>
+
+  <div class="login-box">
+    <img src="img/logo.png" class="avatar" alt="Avatar Image">
+    <h1>Registrarse</h1>
+    <form>
+      <!-- USERNAME INPUT -->
+      <label for="username">Nombre de Usuario</label>
+      <input type="text" placeholder="Ingrese su usuario" id="username">
+      <!-- PASSWORD INPUT -->
+      <label for="password">Contraseña</label>
+      <input type="password" placeholder="Ingrese su clave" id="password">
+      <input type="button" value="Ingresar" id="login">
+      <a href="#">Perdiste tu contraseña?</a><br>
+      <a href="./sujetos.html">No tienes una cuenta?</a>
+    </form>
+  </div>
+  <script>
+    const lgn = document.getElementById("login");
+
+    lgn.addEventListener("click", () => {
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      // Construye la URL con los parámetros
+      const url = `api/login.json`;
+      // Realiza la solicitud GET utilizando Fetch
+      fetch(url, { mode: 'no-cors' })
+        .then(response => {
+          if (!response) {
+            throw new Error(`La solicitud falló con estado: ${response.status}`);
+          }
+          return response.text();
+        })
+        .then(data => {
+          window.location.href='operaciones.html';
+        })
+        .catch(error => {
+          console.error('Error al realizar la solicitud:', error);
+        });
+
+    });
+
+
+
+
+
+  </script>
+</body>
+
 </html>

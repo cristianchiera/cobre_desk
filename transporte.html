@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MINSEG::GESTION</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div id="nav"></div>
+    <section>
+      <h1>Registro de Transporte</h1>
+    </section>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="sujetos.html">Registro</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Transporte</li>
+      </ol>
+    </nav>
+    <section>
+      <form class="row g-3">
+        <div class="col-md-4">
+          <label for="tipoActividades" class="form-label">Motivo por el cual debo realizar un Transporte de
+            Material</label>
+          <select id="tipoActividades" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Venta</option>
+            <option value="2">Reducción</option>
+            <option value="3">Fundición</option>
+            <option value="4">Deposito</option>
+            <option value="4">Desecho</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="principal" class="form-label">Material a Transportar</label>
+          <select id="principal" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Cobre</option>
+            <option value="2">Estaño</option>
+            <option value="3">Plomo</option>
+            <option value="4">Níquel</option>
+            <option value="5">Cobalto</option>
+            <option value="6">Cromo</option>
+            <option value="7">Molibdeno</option>
+            <option value="8">Titanio</option>
+            <option value="9">Tantalo</option>
+            <option value="10">Niobio</option>
+            <option value="11">Tungsteno</option>
+            <option value="12">Cerio</option>
+            <option value="13">Aleaciones de aluminio-cobre</option>
+            <option value="14">Aleaciones de aluminio-manganeso</option>
+            <option value="15">Aleaciones de aluminio-silicio</option>
+            <option value="16">Aleaciones de aluminio-magnesio-silicio</option>
+            <option value="17">Aleaciones de aluminio-zinc</option>
+            <option value="18">Bronces al estaño</option>
+            <option value="19">Bronces al plomo</option>
+            <option value="20">Bronces al aluminio</option>
+            <option value="21">Bronces al silicio</option>
+            <option value="22">Bronces al berilio</option>
+            <option value="23">Latón blando</option>
+            <option value="24">Latón duro</option>
+            <option value="25">Latón semiduro</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="permanente" class="form-label">Estado del Material</label>
+          <select id="permanente" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Estado Puro</option>
+            <option value="2">Elaborado</option>
+            <option value="3">Incorporado en Aleaciones</option>
+            <option value="4">En Piezas Identificables a sus Desechos</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="kilos" class="form-label">Cantidad de Kilogramos de Material a Transportar</label>
+          <input type="text" class="form-control" id="kilos">
+        </div>
+        <div class="col-md-8" id="check_kilos"></div>
+        <hr>
+        <h2 class="text-primary">Datos del Transporte</h2>
+
+        <div class="col-md-4">
+          <label for="tipo_vehiculo" class="form-label">Tipo de Vehiculo</label>
+          <select id="tipo_vehiculo" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Camión</option>
+            <option value="2">Camioneta</option>
+            <option value="3">Furgón</option>
+            <option value="4">Auto</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="tipo_vehiculo" class="form-label">Tipo de Transporte</label>
+          <select id="tipo_vehiculo" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Empresa de Transporte</option>
+            <option value="2">Taxi-Flet</option>
+            <option value="3">De mi Propiedad</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="dominio" class="form-label">Dominio</label>
+          <input type="text" class="form-control" id="dominio">
+        </div>
+
+        <div class="col-md-12">
+          <label for="razon_social" class="form-label">Nombre de Razón Social de Empresa de Transporte y/o
+            Taxi-Flet</label>
+          <input type="text" class="form-control" id="razon_social">
+        </div>
+
+        <div class="col-md-4">
+          <label for="chofer" class="form-label">Nombre del Chofer</label>
+          <input type="text" class="form-control" id="chofer">
+        </div>
+
+        <div class="col-md-2">
+          <label for="dni_chofer" class="form-label">DNI del Chofer</label>
+          <input type="text" class="form-control" id="dni_chofer">
+        </div>
+
+        <div class="col-md-4">
+          <label for="registro_chofer" class="form-label">Nro de Registro de Conducir del Chofer</label>
+          <input type="text" class="form-control" id="registro_chofer">
+        </div>
+        <div class="col-md-2">
+          <label for="tipo_vehiculo" class="form-label">Tipo de Registro</label>
+          <select id="tipo_vehiculo" class="form-select">
+            <option selected>--Elija una Opción--</option>
+            <option value="1">Profesional</option>
+            <option value="2">Particular</option>
+          </select>
+        </div>
+
+        <div id="ventas" class="row"></div>
+        <div id="desechos"></div>
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" id="registrar">Registrar y Generar Autorización Especial para
+            Transporte</button>
+        </div>
+      </form>
+    </section>
+
+
+  </div>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="node_modules/inputmask/dist/inputmask.js"></script>
+  <script type="module">
+    import { nav, ventas, desechos, TOPE } from './functions.js';
+    const navy = document.querySelector('#nav');
+    navy.innerHTML = nav;
+    let kilos = document.getElementById("kilos");
+    let mskKil = new Inputmask("9[9][9][9],9[9][9][9]");
+    mskKil.mask(kilos);
+
+    const motivo = document.querySelector("#tipoActividades");
+    const btn = document.querySelector("#registrar");
+
+    motivo.addEventListener("change", (e) => {
+      const accion = parseInt(e.target.value);
+      if (accion == 1) {
+        ventas();
+      } else if (accion == 4) {
+        desechos();
+      } else {
+        const desechos = document.querySelector("#desechos");
+        const ventas = document.querySelector("#ventas");
+        ventas.innerHTML = "";
+        desechos.innerHTML = '';
+      }
+
+
+    });
+
+    kilos.addEventListener("blur", (e) => {
+      const check_kilos = document.getElementById("check_kilos");
+      let kilaje = (parseFloat((e.target.value).replace(',', '.')));
+
+
+      if (kilaje <= TOPE) {
+        check_kilos.innerHTML = '';
+        const label = document.createElement("label");
+        label.classList.add('form-label', 'text-success');
+        label.setAttribute("for", "check_kilos");
+        label.innerHTML = "Cantidad Aprobada";
+        check_kilos.appendChild(label);
+        const input = document.createElement('input')
+        input.classList.add('form-control', 'is-valid', 'text-success')
+        input.setAttribute('readonly', true)
+        input.value = "Kilos Permitidos para Trasportar"
+        check_kilos.appendChild(input)
+        kilos.classList.add('is-valid');
+
+      } else {
+        check_kilos.innerHTML = '';
+        const label = document.createElement("label");
+        label.classList.add('form-label', 'text-danger');
+        label.setAttribute("for", "check_kilos");
+        label.innerHTML = "No Permitido";
+        check_kilos.appendChild(label);
+        const input = document.createElement('input')
+        input.classList.add('form-control', 'is-invalid', 'text-danger')
+        input.setAttribute('readonly', true)
+        input.value = "Usted no dispone de stock para transportar el kilaje ingresado"
+        check_kilos.appendChild(input)
+        kilos.classList.add('is-invalid');
+        btn.classList.add('disabled')
+      }
+
+    })
+    kilos.addEventListener('keyup', () => {
+      check_kilos.innerHTML = '';
+      (kilos.classList.contains('is-invalid'))
+        ? kilos.classList.remove('is-invalid') : '';
+      (kilos.classList.contains('is-valid'))
+        ? kilos.classList.remove('is-valid') : '';
+
+      (btn.classList.contains('disabled'))
+        ? btn.classList.remove('disabled') : '';
+
+
+
+    });
+
+  </script>
+</body>
+
+</html>
