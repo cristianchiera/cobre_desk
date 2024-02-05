@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Catálogos de Metales No Ferrosos</title>
-  </head>
-  <body>
-    <header>
-        <h1>Catálogos de Metales No Ferrosos</h1>
-      <form id="form">
-        <input type="text" id="search" placeholder="Buscar...">
-        <input type="submit" value="Buscar">
-        <input type="file" id="fileInput" style="display:none" onchange="handleFileSelect(event)">
-      </form>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="catologo.css" />
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <title>Catálogo de Metales No Ferrosos</title>
+  <script type="module" src="./functions.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  
+  <div id="datosInformativos">
+    <!-- Contenedor para mostrar el título dinámicamente -->
+  </div>
 
-    <main id="main">
-    </main>
-    <section id="detalle" style="display: none;">
-      <div id="detalle-content"></div>
-      <button id="cerrarDetalle">Cerrar</button>
-    </section>
+  <main id="main">
+    <!-- Resto del contenido -->
+  </main>
 
-    <script src="script.js"></script>
-  </body>
+  <section id="detalle" style="display: none;">
+    <div id="detalle-content"></div>
+    <button id="cerrarDetalle">Cerrar</button>
+  </section>
+
+  <script src="script.js"></script>
+  <script type="module">
+    import { nav } from './functions.js';
+    const navy = document.querySelector('#nav');
+    navy.innerHTML = nav;
+
+    // Agregar el título dinámicamente al contenedor #datosInformativos
+    const datosInformativos = document.querySelector('#datosInformativos');
+    datosInformativos.innerHTML = '<h1>Catálogo Público de Metales No Ferrosos</h1>';
+  </script>
+</body>
 </html>
 
