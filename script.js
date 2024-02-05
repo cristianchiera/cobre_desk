@@ -63,14 +63,7 @@ function showImages(images) {
 
     // Agregar la card con el botón de "más"
     const addImageCard = document.createElement('div');
-    addImageCard.classList.add('image', 'add-image');
-    addImageCard.innerHTML = `
-        <div id="addImage" onclick="openFileInput()">
-            <div class="plus-symbol">+</div>
-            <div class="add-text">Agregar elemento</div>
-        </div>
-    `;
-    main.appendChild(addImageCard);
+
 
     images.forEach((image) => {
         const { src, description } = image;
