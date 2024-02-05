@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+  <title>MINSEG::GESTION</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div id="nav"></div>
+    <section>
+      <h1>Registro de Empresas </h1>
+    </section>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Registro</li>
+      </ol>
+    </nav>
+    <section>
+      <form class="row g-3">
+
+        <div class="col-md-6">
+          <label for="empresa" class="form-label">Empresa</label>
+          <select id="empresa" class="form-select">
+            <option value="0" selected>--Elija una Opción--</option>
+            <option value="1">Empresa Distribuidora de Electricidad de Mendoza S.A.</option>
+            <option value="2">Empresa Distribuidora de Electricidad del Este S.A.</option>
+            <option value="3">Distrocuyo S.A.</option>
+            <option value="4">COOPERATIVA ELECTRICA GODOY CRUZ</option>
+            <option value="5">Cooperativa de Electrificación Rural Alto Verde y Algarrobo Grande</option>
+            <option value="6">Coop. Monte Comán</option>
+            <option value="7">Coop. Rivadavia</option>
+            <option value="8">Coop. Santa Rosa</option>
+            <option value="9">Coop. Sud Río Tunuyán</option>
+            <option value="10">Coop. Medrano</option>
+            <option value="11">COSPAC</option>
+            <option value="12">CECSAGAL</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="relacion" class="form-label">Tipo de Relación</label>
+          <select id="relacion" class="form-select">
+          <option value="0" selected>--Elija una Opción--</option>
+          <option value="1">Empresa Distribuidora de Electricidad </option>
+          <option value="2">Transporte de energía eléctrica por distribución troncal</option>
+          <option value="3">Cooperativa eléctrica</option>
+     </select>
+        </div>
+        <div class="col-md-6">
+          <label for="Apellido" class="form-label">Contacto/Responsable: Apellido</label>
+          <input type="text" class="form-control" id="Apellido">
+        </div>
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Contacto/Responsable: Nombre</label>
+          <input type="text" class="form-control" id="nombre">
+        </div>
+
+        <div class="col-md-4">
+          <label for="dni" class="form-label">DNI</label>
+          <input type="text" class="form-control" id="dni">
+        </div>
+        <div class="col-md-4">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="text" class="form-control" id="telefono">
+        </div>
+        <div class="col-md-4">
+          <label for="mail" class="form-label">Mail</label>
+          <input type="mail" class="form-control" id="mail">
+        </div>
+
+
+
+       
+
+
+
+
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" id="registrar">Registrar</button>
+        </div>
+      </form>
+    </section>
+
+
+  </div>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="node_modules/inputmask/dist/inputmask.js"></script>
+  <script type="module">
+    import { nav } from './functions.js';
+    const navy = document.querySelector('#nav');
+    navy.innerHTML=nav;
+    let cuil = document.getElementById("cuil");
+    let im = new Inputmask("99-99999999-9");
+    im.mask(cuil);
+
+    let telefono = document.getElementById("telefono");
+    let mskTel= new Inputmask("(999[9])-999999[9]");
+    mskTel.mask(telefono);
+
+    const tipoPersona = document.getElementById('tipoPersona');
+    let relacion = document.getElementById('relacion');
+    tipoPersona.addEventListener("change", (e) => {
+      console.log(typeof e.target.value);
+      switch (parseInt (e.target.value)) {
+        case 1:
+          relacion.innerHTML = '';
+          let op = document.createElement('option');
+          op.setAttribute('value', '1');
+          op.innerHTML = 'Dueño / Propietario';
+          relacion.append(op);
+          break;
+        case 2:
+          relacion.innerHTML = '';
+          var opx = document.createElement('option');
+          opx.setAttribute('value', '0');
+          opx.innerHTML = '--Elija una Opción--';
+          opx.selected = true;
+          relacion.appendChild(opx);
+          for (let index = 1; index < 4; index++) {
+            let op = document.createElement('option');
+            op.setAttribute('value', index);
+            (index==1)
+                 ? op.innerHTML = 'Dueño / Propietario'
+                 : (index==2)
+                      ? op.innerHTML = 'Administrador / Gerente'
+                      : op.innerHTML = 'Representante Legal';;
+            relacion.appendChild(op);
+          }
+          break;
+
+        default:
+          relacion.innerHTML = '';
+          break;
+      }
+
+    })
+
+
+  </script>
+</body>
+
+</html>

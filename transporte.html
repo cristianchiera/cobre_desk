@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
   <title>MINSEG::GESTION</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
 </head>
@@ -24,8 +25,7 @@
     <section>
       <form class="row g-3">
         <div class="col-md-4">
-          <label for="tipoActividades" class="form-label">Motivo por el cual debo realizar un Transporte de
-            Material</label>
+          <label for="tipoActividades" class="form-label">¿Cuál es el motivo por el cual debo realizar un transporte de material?</label>
           <select id="tipoActividades" class="form-select">
             <option selected>--Elija una Opción--</option>
             <option value="1">Venta</option>
@@ -87,7 +87,7 @@
         <h2 class="text-primary">Datos del Transporte</h2>
 
         <div class="col-md-4">
-          <label for="tipo_vehiculo" class="form-label">Tipo de Vehiculo</label>
+          <label for="tipo_vehiculo" class="form-label">Tipo de Vehículo</label>
           <select id="tipo_vehiculo" class="form-select">
             <option selected>--Elija una Opción--</option>
             <option value="1">Camión</option>
@@ -147,7 +147,7 @@
         </div>
       </form>
     </section>
-
+ <img src="" alt="" h>
 
   </div>
 
@@ -230,6 +230,9 @@
 
     });
 
+    btn.addEventListener('click', () => {
+      window.location.href='pdf/certificado.pdf';
+    })
   </script>
 </body>
 

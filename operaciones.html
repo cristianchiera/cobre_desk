@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
   <title>MINSEG::GESTION</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
 </head>
@@ -62,7 +63,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-        <li class="breadcrumb-item active" aria-current="page">operaciones comerciales</li>
+        <li class="breadcrumb-item active" aria-current="page">Operaciones Comerciales</li>
       </ol>
     </nav>
     <section>
@@ -82,8 +83,30 @@
           <select id="metal" class="form-select">
             <option value="0" selected>--Elija una Opción--</option>
             <option value="1">Cobre</option>
-            <option value="2">Aluminio</option>
-            <option value="3">Metales no Ferrosos</option>
+            <option value="2">Estaño</option>
+            <option value="3">Plomo</option>
+            <option value="4">Níquel</option>
+            <option value="5">Cobalto</option>
+            <option value="6">Cromo</option>
+            <option value="7">Molibdeno</option>
+            <option value="8">Titanio</option>
+            <option value="9">Tantalo</option>
+            <option value="10">Niobio</option>
+            <option value="11">Tungsteno</option>
+            <option value="12">Cerio</option>
+            <option value="13">Aleaciones de aluminio-cobre</option>
+            <option value="14">Aleaciones de aluminio-manganeso</option>
+            <option value="15">Aleaciones de aluminio-silicio</option>
+            <option value="16">Aleaciones de aluminio-magnesio-silicio</option>
+            <option value="17">Aleaciones de aluminio-zinc</option>
+            <option value="18">Bronces al estaño</option>
+            <option value="19">Bronces al plomo</option>
+            <option value="20">Bronces al aluminio</option>
+            <option value="21">Bronces al silicio</option>
+            <option value="22">Bronces al berilio</option>
+            <option value="23">Latón blando</option>
+            <option value="24">Latón duro</option>
+            <option value="25">Latón semiduro</option>
           </select>
         </div>
         <div class="col-md-2">
@@ -100,26 +123,34 @@
           <textarea type="text" class="form-control" id="detalles" row="5"></textarea>
         </div>
         <div class="col-md-6">
-          <label for="caracteristicas" class="form-label">Caracteristicas</label>
+          <label for="caracteristicas" class="form-label">Características</label>
           <textarea type="text" class="form-control" id="caracteristicas" row="5"></textarea>
         </div>
         <hr>
         <span class="text-primary" id="datosOperacion"></span>
-        <div class="row g-3" id="datosInformativos">
-          <div class="col-md-12">
-            <label for="dni" class="form-label">DNI</label>
-            <input type="text" class="form-control" id="dni">
-          </div>
-          <div class="col-md-12">
-            <label for="telefono" class="form-label">Telefono</label>
-            <input type="text" class="form-control" id="telefono">
-          </div>
-          <div class="col-md-12">
-            <label for="mail" class="form-label">Mail</label>
-            <input type="mail" class="form-control" id="mail">
-          </div>
 
+        <div class="col-md-6">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="apellido" name="datosInformativos">
         </div>
+        <div class="col-md-6">
+          <label for="nombres" class="form-label">Nombres</label>
+          <input type="text" class="form-control" id="nombres" name="datosInformativos">
+        </div>
+        <div class="col-md-4">
+          <label for="dni" class="form-label">DNI</label>
+          <input type="text" class="form-control" id="dni" name="datosInformativos">
+        </div>
+        <div class="col-md-4">
+          <label for="telefono" class="form-label">Telefono</label>
+          <input type="text" class="form-control" id="telefono" name="datosInformativos">
+        </div>
+        <div class="col-md-4">
+          <label for="mail" class="form-label">Mail</label>
+          <input type="mail" class="form-control" id="mail" name="datosInformativos">
+        </div>
+
+
         <div class="col-12">
           <button type="button" class="btn btn-primary" id="registrar"></button>
         </div>
@@ -134,7 +165,7 @@
   <script type="module">
     import { nav } from './functions.js';
     const navy = document.querySelector('#nav');
-    navy.innerHTML=nav;
+    navy.innerHTML = nav;
 
     let telefono = document.getElementById("telefono");
     let mskTel = new Inputmask("(999[9])-999999[9]");
@@ -147,16 +178,22 @@
     const tipoOperacion = document.querySelector('#tipoOperacion');
     const datosOperacion = document.querySelector('#datosOperacion');
     const registrar = document.querySelector('#registrar');
-    const datosInformativos = document.querySelector('#datosInformativos');
+    const datosInformativos = document.querySelectorAll('[name="datosInformativos"]');
+
     registrar.style.display = "none"
     block();
 
+
     function block() {
-      datosInformativos.style.display = "none"
+      datosInformativos.forEach(elemento => {
+        elemento.style.display = 'none';
+      });
     }
 
     function unblock() {
-      datosInformativos.style.display = "inline-block"
+      datosInformativos.forEach(elemento => {
+        elemento.style.display =  "inline-block";
+      });
     }
 
     tipoOperacion.addEventListener("change", (e) => {
