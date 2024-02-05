@@ -58,9 +58,12 @@ main {
 
 .image,
 .add-image {
-  width: calc(33.333% - 10px); /* Ajusta el ancho según tus necesidades */
-  height: 300px; /* Ajusta la altura según tus necesidades */
-  margin-bottom: 10px; /* Ajuste del margen inferior */
+  width: calc(33.333% - 10px);
+  /* Ajusta el ancho según tus necesidades */
+  height: 300px;
+  /* Ajusta la altura según tus necesidades */
+  margin-bottom: 10px;
+  /* Ajuste del margen inferior */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
@@ -125,4 +128,26 @@ main {
 .plus-symbol {
   font-size: 36px;
   color: #555;
+}
+
+.btn {
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+btn:hover {
+  background: #eee;
+}
+
+.sucess:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.success {
+  color: white;
 }

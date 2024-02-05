@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+  <title>MINSEG::GESTION</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div id="nav"></div>
+
+    <section>
+      <h1>Consulta de Catalogo</h1>
+    </section>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item" aria-current="page">Empresa</li>  
+        <li class="breadcrumb-item active" aria-current="page">Consulta</li>
+      </ol>
+    </nav>
+    <section>
+      <form class="row g-3">
+
+        <div class="col-md-6">
+          <label for="empresa" class="form-label">Empresa</label>
+          <select id="empresa" class="form-select">
+            <option value="1" selected>Edemsa S.A</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="categoria" class="form-label">Categoria</label>
+          <select id="categoria" class="form-select">
+            <option value="0" selected>--Elija una Opción--</option>
+            <option value="1">Transformadores</option>
+            <option value="2">Cables</option>
+          </select>
+        </div>
+        <div id="catalogo">
+
+
+        </div>
+
+
+
+      </form>
+    </section>
+
+
+  </div>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script type="module">
+    import { nav } from './functions.js';
+    const navy = document.querySelector('#nav');
+    navy.innerHTML = nav;
+    const catalogo = document.querySelector('#catalogo');
+    const empresa=document.getElementById('empresa').value;
+    const categoria=document.getElementById('categoria');
+     categoria.addEventListener('change',async (e)=>{
+       const valor_categoria=(e.target.value);
+       if(valor_categoria==1){
+          catalogo.innerHTML='';
+          catalogo.innerHTML='<div class="card"><div class="card-header">Tranformadores</div><div class="card-body">'
+                              +'<h5 class="card-title">Transformador de Distribución de Llenado Integral</h5><table><tr>' 
+                              +'<td><img src="img/catalogo/transformadores/Transformador_de_Distribucion_de_Llenado_Integral.png" class="img-thumbnail" alt="transformador"></td>' 
+                              +'<td>Al ser un transformador hermético (sin tanque de expansión) su estructura trabaja a presión variable en función de la temperatura del aceite...</td>'
+                              +'<td><a href="pdf/catalogo/transformadores/Transformador_de_Distribucion_de_Llenado_Integral.pdf">Ficha Técnica</a></td>'
+                              +'</tr></table></div></div>';
+
+          catalogo.innerHTML+='<div class="card"><div class="card-header">Tranformadores</div><div class="card-body">'
+                              +'<h5 class="card-title">Equipos compactos de medida (medición) de 2 elementos</h5><table><tr>' 
+                              +'<td><img src="img/catalogo/transformadores/Equipos_compactos_de_medida_2_elementos.png" class="img-thumbnail" alt="transformador" ></td>' 
+                              +'<td>Razón de transformación: 8400/240v o 224v, 12.000/240 o 224V, 14.400/240v o 224V</td>'
+                              +'<td><a href="pdf/catalogo/transformadores/Equipos_compactos_de_medida_ de_ 2_elementos.pdf">Ficha Técnica</a></td>'
+                              +'</tr></table></div></div>';
+
+       }else{
+        catalogo.innerHTML='';
+         catalogo.innerHTML='<div class="card"><div class="card-header">Cables</div><div class="card-body">'
+                              +'<h5 class="card-title">POWERHARD RV AL / U-1000 AR2V</h5><table><tr>' 
+                              +'<td><img src="img/catalogo/cables/POWERHARD_RV_AL_U-1000_AR2V.png" class="img-thumbnail" alt="transformador"></td>' 
+                              +'<td>Cable de aluminio para la transmisión de potencia.</td>'
+                              +'<td><a href="pdf/catalogo/cables/POWERHARD _RV_AL _ U-1000_AR2V.pdf">Ficha Técnica</a></td>'
+                              +'</tr></table></div></div>';
+        catalogo.innerHTML+='<div class="card"><div class="card-header">Cables</div><div class="card-body">'
+                              +'<h5 class="card-title">POWERFLEX RV-K</h5><table><tr>' 
+                              +'<td><img src="img/catalogo/cables/POWERFLEX _RV-K.png" class="img-thumbnail" alt="transformador"></td>' 
+                              +'<td>Cable flexible de potencia para uso industrial.</td>'
+                              +'<td><a href="pdf/catalogo/cables/POWERFLEX_RV-K.pdf">Ficha Técnica</a></td>'
+                              +'</tr></table></div></div>';  
+        catalogo.innerHTML+='<div class="card"><div class="card-header">Cables</div><div class="card-body">'
+                              +'<h5 class="card-title">X-VOLT HEPRZ1 AL</h5><table><tr>' 
+                              +'<td><img src="img/catalogo/cables/X-VOLT _HEPRZ1 _AL.png" class="img-thumbnail" alt="transformador"></td>' 
+                              +'<td>Cable de Media Tensión de aluminio, con aislamiento de HEPR, libre de halógenos.</td>'
+                              +'<td><a href="pdf/catalogo/cables/X-VOLT _HEPRZ1 _AL.pdf">Ficha Técnica</a></td>'
+                              +'</tr></table></div></div>';     
+        catalogo.innerHTML+='<div class="card"><div class="card-header">Cables</div><div class="card-body">'
+                              +'<h5 class="card-title">TOPFLEX MS TRI-RATED</h5><table><tr>' 
+                              +'<td><img src="img/catalogo/cables/TOPFLEX _MS _TRI-RATED.png" class="img-thumbnail" alt="transformador"></td>' 
+                              +'<td>El cable ha sido especialmente diseñado para cableado interno de armarios eléctricos, cajas de interruptores y pequeños aparatos eléctricos</td>'
+                              +'<td><a href="pdf/catalogo/cables/TOPFLEX _MS _TRI-RATED.pdf">Ficha Técnica</a></td>'
+                              +'</tr></table></div></div>';                                                                      
+       }
+
+    });
+
+    
+   
+
+
+  </script>
+</body>
+
+</html>

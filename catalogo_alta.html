@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+  <title>MINSEG::GESTION</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div id="nav"></div>
+
+    <section>
+      <h1>Carga de Catalogo</h1>
+    </section>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item" aria-current="page">Empresa</li>  
+        <li class="breadcrumb-item active" aria-current="page">Catalogo Carga</li>
+      </ol>
+    </nav>
+    <section>
+      <form class="row g-3">
+
+        <div class="col-md-6">
+          <label for="empresa" class="form-label">Empresa</label>
+          <select id="empresa" class="form-select">
+            <option value="1" selected>Edemsa S.A</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="categoria" class="form-label">Categoria</label>
+          <select id="categoria" class="form-select">
+            <option value="0" selected>--Elija una Opción--</option>
+            <option value="1">Transformadores</option>
+            <option value="2">Cables</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label for="descripcion" class="form-label">Descripcion</label>
+          <textarea class="form-control" id="descripcion" rows="5"></textarea>
+        </div>
+        <div class="col-md-4">
+          <label for="caracteristicas_electricas" class="form-label">Características eléctricas</label>
+          <textarea class="form-control" id="caracteristicas_electricas" rows="3"></textarea>
+        </div>
+        <div class="col-md-4">
+          <label for="embalaje" class="form-label">Embalaje</label>
+          <textarea class="form-control" id="embalaje" rows="3"></textarea>
+        </div>
+        <div class="col-md-4">
+          <label for="aplicaciones" class="form-label">Aplicaciones</label>
+          <textarea class="form-control" id="aplicaciones" rows="3"></textarea>
+        </div>
+
+
+
+        <div class="col-6">
+          <label for="fotos" class="form-label">Subir Fotos</label>
+          <input type="file" class="form-control" id="fotos" placeholder="">
+        </div>
+        <div class="col-6">
+          <label for="documentacion" class="form-label">Documentación Extra</label>
+          <input type="file" class="form-control" id="documentacion" placeholder="">
+        </div>
+
+
+
+
+
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" id="registrar">Registrar</button>
+        </div>
+      </form>
+    </section>
+
+
+  </div>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="node_modules/inputmask/dist/inputmask.js"></script>
+  <script type="module">
+    import { nav } from './functions.js';
+    const navy = document.querySelector('#nav');
+    navy.innerHTML=nav;
+    let cuil = document.getElementById("cuil");
+    let im = new Inputmask("99-99999999-9");
+    im.mask(cuil);
+
+    let telefono = document.getElementById("telefono");
+    let mskTel= new Inputmask("(999[9])-999999[9]");
+    mskTel.mask(telefono);
+
+    const tipoPersona = document.getElementById('tipoPersona');
+    let relacion = document.getElementById('relacion');
+    tipoPersona.addEventListener("change", (e) => {
+      console.log(typeof e.target.value);
+      switch (parseInt (e.target.value)) {
+        case 1:
+          relacion.innerHTML = '';
+          let op = document.createElement('option');
+          op.setAttribute('value', '1');
+          op.innerHTML = 'Dueño / Propietario';
+          relacion.append(op);
+          break;
+        case 2:
+          relacion.innerHTML = '';
+          var opx = document.createElement('option');
+          opx.setAttribute('value', '0');
+          opx.innerHTML = '--Elija una Opción--';
+          opx.selected = true;
+          relacion.appendChild(opx);
+          for (let index = 1; index < 4; index++) {
+            let op = document.createElement('option');
+            op.setAttribute('value', index);
+            (index==1)
+                 ? op.innerHTML = 'Dueño / Propietario'
+                 : (index==2)
+                      ? op.innerHTML = 'Administrador / Gerente'
+                      : op.innerHTML = 'Representante Legal';;
+            relacion.appendChild(op);
+          }
+          break;
+
+        default:
+          relacion.innerHTML = '';
+          break;
+      }
+
+    })
+
+
+  </script>
+</body>
+
+</html>

@@ -17,6 +17,9 @@ const nav = `      <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <a class="nav-link" href="sujetos.html">Registro</a>
       </li>
       <li class="nav-item">
+      <a class="nav-link" href="empresas.html">Empresas</a>
+    </li>
+      <li class="nav-item">
       <a class="nav-link" href="actividad.html">Actividades</a>
     </li>
     <li class="nav-item">
@@ -25,18 +28,29 @@ const nav = `      <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <li class="nav-item">
   <a class="nav-link" href="transporte.html">Transporte</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="catalogo.html">Catalogo</a>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+  aria-expanded="false">
+  Catalogo
+</a>
+<ul class="dropdown-menu">
+  <li><a class="dropdown-item" href="catalogo_alta.html">Cargar Catalogo</a></li>
+  <li><a class="dropdown-item" href="catalogo_empresa_consulta.html">Consultar Catalogo</a></li>
+  <li>
+  <hr class="dropdown-divider">
+</li>
+<li><a class="dropdown-item" href="catalogo.html">Catalogo Público</a></li>
+</ul>
 </li>
   </div>
 </div>
 </nav`;
 
-function ventas(){
+function ventas() {
   const ventas = document.querySelector("#ventas");
   const desechos = document.querySelector("#desechos");
   ventas.innerHTML = "";
-  desechos.innerHTML='';
+  desechos.innerHTML = '';
   const h2 = document.createElement("h2");
   h2.classList.add("text-primary");
   h2.textContent = "Informacion sobre la Venta"
@@ -87,7 +101,7 @@ function ventas(){
   tipoFactura.appendChild(select);
   ventas.appendChild(tipoFactura);
 
-  const montoFactura= document.createElement("div");
+  const montoFactura = document.createElement("div");
   montoFactura.classList.add("col-md-2");
   const label4 = document.createElement("label");
   label4.classList.add("form-label");
@@ -117,7 +131,7 @@ function ventas(){
   <option value="3">Billetera Virtual</option>`;
   metodoPago.appendChild(label5);
   metodoPago.appendChild(select2);
-  ventas.appendChild(metodoPago);   
+  ventas.appendChild(metodoPago);
 }
 
 function desechos() {
@@ -136,8 +150,8 @@ function desechos() {
   const label = document.createElement("label");
   label.setAttribute("for", "desecho");
   label.setAttribute("class", "form-label");
-  label.innerHTML = "Descripcion de material a desechar"; 
-  div.appendChild(label); 
+  label.innerHTML = "Descripcion de material a desechar";
+  div.appendChild(label);
   const txtArea = document.createElement("textarea");
   txtArea.classList.add("form-control");
   txtArea.id = "desechos";
@@ -147,5 +161,5 @@ function desechos() {
   desechos.appendChild(div);
 }
 
-const TOPE=parseFloat(100);
-export { nav , ventas, desechos , TOPE};
+const TOPE = parseFloat(100);
+export { nav, ventas, desechos, TOPE };
