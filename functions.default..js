@@ -26,7 +26,7 @@ const nav = `      <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <a class="nav-link" href="transporte.html">Transporte</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="catalogo.html">Catalogo</a>
+<a class="nav-link" href="catalogo.html">Catálogo</a>
 </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

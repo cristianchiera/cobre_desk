@@ -17,11 +17,12 @@ const nav = `      <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <a class="nav-link" href="sujetos.html">Registro</a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" href="empresas.html">Empresas</a>
-    </li>
-      <li class="nav-item">
       <a class="nav-link" href="actividad.html">Actividades</a>
     </li>
+      <li class="nav-item">
+      <a class="nav-link" href="empresas.html">Empresas</a>
+    </li>
+
     <li class="nav-item">
     <a class="nav-link" href="operaciones.html">Operaciones</a>
   </li>
@@ -31,15 +32,15 @@ const nav = `      <nav class="navbar navbar-expand-lg bg-body-tertiary">
 <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
   aria-expanded="false">
-  Catalogo
+  Catálogo
 </a>
 <ul class="dropdown-menu">
-  <li><a class="dropdown-item" href="catalogo_alta.html">Cargar Catalogo</a></li>
-  <li><a class="dropdown-item" href="catalogo_empresa_consulta.html">Consultar Catalogo</a></li>
+  <li><a class="dropdown-item" href="catalogo_alta.html">Cargar Catálogo</a></li>
+  <li><a class="dropdown-item" href="catalogo_empresa_consulta.html">Consultar Catálogo</a></li>
   <li>
   <hr class="dropdown-divider">
 </li>
-<li><a class="dropdown-item" href="catalogo.html">Catalogo Público</a></li>
+<li><a class="dropdown-item" href="catalogo.html">Catálogo Público</a></li>
 </ul>
 </li>
   </div>
@@ -53,7 +54,7 @@ function ventas() {
   desechos.innerHTML = '';
   const h2 = document.createElement("h2");
   h2.classList.add("text-primary");
-  h2.textContent = "Informacion sobre la Venta"
+  h2.textContent = "Información sobre la Venta"
   ventas.appendChild(h2);
   const div = document.createElement("div");
   div.classList.add("col-md-4");
