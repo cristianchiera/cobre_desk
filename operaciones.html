@@ -163,7 +163,7 @@
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   <script src="node_modules/inputmask/dist/inputmask.js"></script>
   <script type="module">
-    import { nav } from './functions.js';
+    import { nav, TOPE } from './functions.js';
     const navy = document.querySelector('#nav');
     navy.innerHTML = nav;
 
@@ -172,7 +172,7 @@
     mskTel.mask(telefono);
 
     let kilos = document.getElementById("kilos");
-    let mskKil = new Inputmask("99[99],99[99]");
+    let mskKil = new Inputmask("9[9][9][9],9[9][9][9]");
     mskKil.mask(kilos);
 
     const tipoOperacion = document.querySelector('#tipoOperacion');
@@ -201,7 +201,7 @@
       switch (parseInt(e.target.value)) {
         case 1:
           datosOperacion.innerHTML = '';
-          datosOperacion.innerHTML = "<h3>A quien le compro?</h3>";
+          datosOperacion.innerHTML = "<h3>¿A quién le compro?</h3>";
           registrar.textContent = ''
           registrar.textContent = 'Registrar Compra';
           registrar.style.display = "inline-block";
@@ -209,7 +209,7 @@
           break;
         case 2:
           datosOperacion.innerHTML = '';
-          datosOperacion.innerHTML = "<h3>A quien le vendo?</h3>";
+          datosOperacion.innerHTML = "<h3>¿A quién le vendo?</h3>";
           registrar.textContent = ''
           registrar.textContent = 'Registrar Venta';
           registrar.style.display = "inline-block";
